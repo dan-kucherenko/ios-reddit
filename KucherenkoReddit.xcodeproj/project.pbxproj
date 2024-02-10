@@ -13,6 +13,8 @@
 		A58C2ED32B76EF00005E15AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED12B76EF00005E15AF /* Main.storyboard */; };
 		A58C2ED52B76EF01005E15AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED42B76EF01005E15AF /* Assets.xcassets */; };
 		A58C2ED82B76EF01005E15AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED62B76EF01005E15AF /* LaunchScreen.storyboard */; };
+		A58C2EEB2B76FAD1005E15AF /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A58C2EEA2B76FAD1005E15AF /* SDWebImage */; };
+		A58C2EED2B76FAD1005E15AF /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A58C2EEC2B76FAD1005E15AF /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58C2EED2B76FAD1005E15AF /* SDWebImageMapKit in Frameworks */,
+				A58C2EEB2B76FAD1005E15AF /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +88,8 @@
 			);
 			name = KucherenkoReddit;
 			packageProductDependencies = (
+				A58C2EEA2B76FAD1005E15AF /* SDWebImage */,
+				A58C2EEC2B76FAD1005E15AF /* SDWebImageMapKit */,
 			);
 			productName = KucherenkoReddit;
 			productReference = A58C2EC82B76EF00005E15AF /* KucherenkoReddit.app */;
@@ -114,6 +120,7 @@
 			);
 			mainGroup = A58C2EBF2B76EF00005E15AF;
 			packageReferences = (
+				A58C2EE92B76FAD1005E15AF /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = A58C2EC92B76EF00005E15AF /* Products */;
 			projectDirPath = "";
@@ -375,6 +382,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A58C2EE92B76FAD1005E15AF /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A58C2EEA2B76FAD1005E15AF /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A58C2EE92B76FAD1005E15AF /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		A58C2EEC2B76FAD1005E15AF /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A58C2EE92B76FAD1005E15AF /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A58C2EC02B76EF00005E15AF /* Project object */;
 }
