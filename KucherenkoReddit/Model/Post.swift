@@ -15,7 +15,7 @@ struct Post {
     let title: String
     let score: Int
     let numComments: Int
-    let url: String
+    var url: String? = nil
     
     init(from apiChild: ChildData){
         self.author = apiChild.author
@@ -25,6 +25,12 @@ struct Post {
         self.title = apiChild.title
         self.score = apiChild.score
         self.numComments = apiChild.numComments
-        self.url = apiChild.url.replacingOccurrences(of: "&amp", with: "&")
+        self.url = manageImageExistence(post: apiChild)
+    }
+    
+    private func manageImageExistence(post: ChildData?) -> String? {
+        guard let post else { return nil }
+        guard let preview = post.preview else {return nil}
+        return preview.enabled ? preview.images.first?.source.url : nil
     }
 }

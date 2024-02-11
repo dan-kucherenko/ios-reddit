@@ -28,15 +28,15 @@ struct ChildData: Codable {
     let score: Int
     let numComments: Int
     let url: String
-
-    enum CodingKeys: String, CodingKey {
-        case author
-        case createdUtc = "created_utc"
-        case domain
-        case saved
-        case title
-        case score
-        case numComments = "num_comments"
-        case url
+    let preview: Preview?
+    struct Preview: Codable {
+        let images: [Image]
+        let enabled: Bool
+    }
+    struct Image: Codable {
+        let source: Source
+    }
+    struct Source: Codable {
+        let url: String
     }
 }
