@@ -9,11 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var savedButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
+    
+    @IBAction func onChangeSave(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        if sender.isSelected {
+            sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        } else {
+            sender.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        }
+    }
+}
 
-
+#Preview {
+    return ViewController()
 }
 
