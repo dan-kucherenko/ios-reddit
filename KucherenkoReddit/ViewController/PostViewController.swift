@@ -7,7 +7,7 @@
 import UIKit
 import SDWebImage
 
-class ViewController: UIViewController {
+class PostViewController: UIViewController {
     let api = ApiInfoReciever()
     
     @IBOutlet private  weak var author: UILabel!
@@ -15,9 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet private weak var domain: UILabel!
     @IBOutlet private weak var savedButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var image: UIImageView!
     @IBOutlet private weak var rating: UIButton!
     @IBOutlet private weak var comments: UIButton!
+    @IBOutlet private weak var image: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
