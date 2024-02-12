@@ -11,7 +11,7 @@ struct Post {
     let author: String
     let createdUtc: Int
     let domain: String
-    let saved: Bool
+    var saved: Bool
     let title: String
     let score: Int
     let numComments: Int
@@ -21,7 +21,7 @@ struct Post {
         self.author = apiChild.author
         self.createdUtc = apiChild.createdUtc
         self.domain = apiChild.domain
-        self.saved = apiChild.saved
+        self.saved = Bool.random()
         self.title = apiChild.title
         self.score = apiChild.score
         self.numComments = apiChild.numComments

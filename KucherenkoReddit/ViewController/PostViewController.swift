@@ -8,9 +8,10 @@ import UIKit
 import SDWebImage
 
 class PostViewController: UIViewController {
-    let api = ApiInfoReciever()
+    private let api = ApiInfoReciever()
+    private var post: Post?
     
-    @IBOutlet private  weak var author: UILabel!
+    @IBOutlet private weak var author: UILabel!
     @IBOutlet private weak var postTime: UILabel!
     @IBOutlet private weak var domain: UILabel!
     @IBOutlet private weak var savedButton: UIButton!
@@ -22,18 +23,19 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Task {
-            let post = await api.getPosts()[0]
+            post = await api.getPosts()[0]
             setViewElements(post: post)
         }
     }
     
     @IBAction func onChangeSave(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        let config = UIImage.SymbolConfiguration(scale: .medium)
-        if sender.isSelected {
-            sender.setImage(UIImage(systemName: "bookmark.fill", withConfiguration: config), for: .normal)
+        post?.saved.toggle()
+        guard let saved = post?.saved else {return}
+        print(saved)
+        if saved {
+            setImage(image: "bookmark.fill")
         } else {
-            sender.setImage(UIImage(systemName: "bookmark", withConfiguration: config), for: .normal)
+            setImage(image: "bookmark")
         }
     }
     
@@ -47,6 +49,9 @@ class PostViewController: UIViewController {
         manageUrl(url: post.url)
         self.rating.setTitle(String(post.score), for: .normal)
         self.comments.setTitle(String(post.numComments), for: .normal)
+        
+        let savedBtnImageStr = savedButton.isSelected ? "bookmark.fill" : "bookmark"
+        setImage(image: savedBtnImageStr)
     }
     
     private func convertTime(_ createdUtc: Int) -> String {
@@ -57,11 +62,16 @@ class PostViewController: UIViewController {
         return dateStr
     }
     
-    func manageUrl(url: String?) {
+    private func manageUrl(url: String?) {
         guard let url else {
             self.image.image = UIImage(resource: .frank)
             return
         }
         self.image.sd_setImage(with: URL(string: url))
+    }
+    
+    private func setImage(image: String) {
+        let config = UIImage.SymbolConfiguration(scale: .medium)
+        self.savedButton.setImage(UIImage(systemName: image, withConfiguration: config), for: .normal)
     }
 }

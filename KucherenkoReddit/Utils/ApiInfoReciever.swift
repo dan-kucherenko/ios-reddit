@@ -8,34 +8,6 @@
 import Foundation
 
 struct ApiInfoReciever {
-    private func getInfo() async -> ApiResponsePost? {
-        let endPoint = "https://www.reddit.com/r/ios/top.json?limit=1"
-        guard let url = URL(string: endPoint) else {
-            print("Error in creating URL")
-            return nil
-        }
-        
-        var data: Data?
-        var apiPost: ApiResponsePost?
-        do {
-            let (apiData, _) = try await URLSession.shared.data(from: url)
-            data = apiData
-        } catch {
-            print("Error getting the data from api")
-        }
-        
-        guard let data else {print("Data is nil"); return nil}
-        
-        do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            apiPost = try decoder.decode(ApiResponsePost.self, from: data)
-        } catch {
-            print("Error, while decoding the response")
-        }
-        return apiPost
-    }
-    
     func getPosts() async -> [Post] {
         let apiResponsePosts = await self.getInfoWithParams(subreddit: "r/ios", limit: 1, after: nil)
         print(apiResponsePosts as Any)
@@ -49,7 +21,7 @@ struct ApiInfoReciever {
         return posts
     }
     
-    func getInfoWithParams(subreddit: String, limit: Int, after: String?) async -> ApiResponsePost? {
+    private func getInfoWithParams(subreddit: String, limit: Int, after: String?) async -> ApiResponsePost? {
         let limit = String(limit)
         
         let endPoint = "https://www.reddit.com/" + subreddit + "/top.json"
