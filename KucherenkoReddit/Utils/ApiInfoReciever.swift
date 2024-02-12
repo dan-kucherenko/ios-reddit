@@ -37,8 +37,8 @@ struct ApiInfoReciever {
     }
     
     func getPosts() async -> [Post] {
-        let apiResponsePosts = await self.getInfoWithParams(subreddit: "r/SteamDeck", limit: 1, after: nil)
-        print(apiResponsePosts)
+        let apiResponsePosts = await self.getInfoWithParams(subreddit: "r/ios", limit: 1, after: nil)
+        print(apiResponsePosts as Any)
         var posts: [Post] = []
         
         guard let apiResponsePosts else { print("Posts are empty"); return [] }
@@ -62,6 +62,7 @@ struct ApiInfoReciever {
             URLQueryItem(name: "limit", value: limit),
             URLQueryItem(name: "after", value: after)
         ]
+        
         var data: Data?
         var apiPost: ApiResponsePost?
         guard let url = composedUrl.url else {

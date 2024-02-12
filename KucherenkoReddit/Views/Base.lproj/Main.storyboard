@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_72" orientation="portrait" appearance="dark"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Post View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KucherenkoReddit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PostViewController" customModule="KucherenkoReddit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,7 +55,7 @@
                                                     <imageReference key="image" image="bookmark" catalog="system" symbolScale="medium"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="onChangeSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nZU-Cs-J4P"/>
+                                                    <action selector="onChangeSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QaZ-bx-8LS"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UC1-mB-94P" userLabel="Dop">
@@ -95,7 +95,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="J0f-N0-8Oe"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -109,7 +109,8 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="143.33333333333334" height="30"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="arrow.up" catalog="system" title="10" imagePadding="3">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="baseForegroundColor" systemColor="systemGrayColor"/>
                                                 </buttonConfiguration>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOC-pa-cAR" userLabel="Comments">
@@ -117,13 +118,16 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="14" imagePadding="3">
                                                     <imageReference key="image" image="bubble.right" catalog="system" variableValue="1"/>
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="baseForegroundColor" systemColor="systemGrayColor"/>
                                                 </buttonConfiguration>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tw-2Y-Ibs" userLabel="Share">
                                                 <rect key="frame" x="286.66666666666669" y="0.0" width="143.33333333333331" height="30"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system" imagePadding="0.0"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system" imagePadding="0.0">
+                                                    <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                                                </buttonConfiguration>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -145,14 +149,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="author" destination="Pus-q6-ZRC" id="gkL-sB-HUB"/>
-                        <outlet property="comments" destination="YOC-pa-cAR" id="tEp-2S-fEf"/>
-                        <outlet property="domain" destination="bTg-5c-z9l" id="gXI-Sy-xic"/>
-                        <outlet property="image" destination="g42-Uw-vUx" id="pfQ-YN-Vr7"/>
-                        <outlet property="postTime" destination="UC1-mB-94P" id="iay-3Y-c9N"/>
-                        <outlet property="rating" destination="0Lt-TI-KBS" id="vvk-hg-wHS"/>
-                        <outlet property="savedButton" destination="mYA-1N-Of1" id="Vix-8j-0D7"/>
-                        <outlet property="titleLabel" destination="HB1-x0-gif" id="8VS-Bp-4CB"/>
+                        <outlet property="author" destination="Pus-q6-ZRC" id="7nh-sV-LlW"/>
+                        <outlet property="comments" destination="YOC-pa-cAR" id="Avg-Yd-de6"/>
+                        <outlet property="domain" destination="bTg-5c-z9l" id="KEj-yX-FWN"/>
+                        <outlet property="image" destination="g42-Uw-vUx" id="Fob-3t-V7d"/>
+                        <outlet property="postTime" destination="UC1-mB-94P" id="M1K-gX-YbZ"/>
+                        <outlet property="rating" destination="0Lt-TI-KBS" id="AYS-TD-EUC"/>
+                        <outlet property="savedButton" destination="mYA-1N-Of1" id="VaU-vb-hJx"/>
+                        <outlet property="titleLabel" destination="HB1-x0-gif" id="cce-Qx-fbj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -167,10 +171,13 @@
         <image name="bubble.right" catalog="system" width="128" height="110"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

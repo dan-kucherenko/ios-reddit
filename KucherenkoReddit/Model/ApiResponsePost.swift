@@ -27,7 +27,7 @@ struct ChildData: Codable {
     let title: String
     let score: Int
     let numComments: Int
-    let url: String
+    let url: String?
     let preview: Preview?
     struct Preview: Codable {
         let images: [Image]
