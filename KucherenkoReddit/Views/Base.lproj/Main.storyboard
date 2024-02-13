@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tuk-Y8-VB3" userLabel="Post View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrj-AK-brI" userLabel="Post View">
                                 <rect key="frame" x="0.0" y="328.66666666666669" width="430" height="300.00000000000006"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pV5-kD-NFP" userLabel="Info View">
@@ -100,7 +100,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frank" translatesAutoresizingMaskIntoConstraints="NO" id="g42-Uw-vUx">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Franks" translatesAutoresizingMaskIntoConstraints="NO" id="g42-Uw-vUx">
                                         <rect key="frame" x="0.0" y="70" width="430" height="200"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6Jb-VY-rO0" userLabel="Button View">
@@ -136,17 +136,31 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="X6u-cJ-His"/>
+                                    <constraint firstItem="6Jb-VY-rO0" firstAttribute="top" secondItem="g42-Uw-vUx" secondAttribute="bottom" id="0AS-rw-ePy"/>
+                                    <constraint firstItem="pV5-kD-NFP" firstAttribute="top" secondItem="zrj-AK-brI" secondAttribute="top" id="7T6-ml-PQJ"/>
+                                    <constraint firstItem="HB1-x0-gif" firstAttribute="leading" secondItem="zrj-AK-brI" secondAttribute="leading" id="B8p-05-ria"/>
+                                    <constraint firstAttribute="trailing" secondItem="g42-Uw-vUx" secondAttribute="trailing" id="GPT-1d-GSi"/>
+                                    <constraint firstItem="pV5-kD-NFP" firstAttribute="leading" secondItem="zrj-AK-brI" secondAttribute="leading" id="ILw-Ya-cPc"/>
+                                    <constraint firstItem="g42-Uw-vUx" firstAttribute="leading" secondItem="zrj-AK-brI" secondAttribute="leading" id="JDI-1s-HBB"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Jb-VY-rO0" secondAttribute="bottom" id="N7D-JW-wfm"/>
+                                    <constraint firstAttribute="trailing" secondItem="pV5-kD-NFP" secondAttribute="trailing" id="Ogp-VA-ctu"/>
+                                    <constraint firstAttribute="trailing" secondItem="HB1-x0-gif" secondAttribute="trailing" id="Q0q-cN-M9W"/>
+                                    <constraint firstAttribute="height" constant="300" id="c85-Wg-cvl"/>
+                                    <constraint firstItem="g42-Uw-vUx" firstAttribute="top" secondItem="HB1-x0-gif" secondAttribute="bottom" id="cZL-rL-89E"/>
+                                    <constraint firstItem="6Jb-VY-rO0" firstAttribute="leading" secondItem="zrj-AK-brI" secondAttribute="leading" id="d12-UU-BQd"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Jb-VY-rO0" secondAttribute="trailing" id="hX9-Qa-bFh"/>
+                                    <constraint firstItem="HB1-x0-gif" firstAttribute="top" secondItem="pV5-kD-NFP" secondAttribute="bottom" id="xie-yY-QSk"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tuk-Y8-VB3" secondAttribute="trailing" id="9AK-pj-fHe"/>
-                            <constraint firstItem="tuk-Y8-VB3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="fui-nN-7BB"/>
-                            <constraint firstItem="tuk-Y8-VB3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wRa-q6-SOT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zrj-AK-brI" secondAttribute="trailing" id="O2O-R7-9nb"/>
+                            <constraint firstItem="zrj-AK-brI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bey-6R-RCC"/>
+                            <constraint firstItem="zrj-AK-brI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="etc-bn-IcT"/>
                         </constraints>
                     </view>
                     <connections>
@@ -166,7 +180,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Frank" width="1280" height="960"/>
+        <image name="Franks" width="1280" height="960"/>
         <image name="arrow.up" catalog="system" width="118" height="128"/>
         <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="bubble.right" catalog="system" width="128" height="110"/>
