@@ -64,7 +64,7 @@ class PostViewController: UIViewController {
     
     private func manageUrl(url: String?) {
         guard let url else {
-            self.image.image = UIImage(resource: .frank)
+            self.image.image = UIImage(resource: .franks)
             return
         }
         self.image.sd_setImage(with: URL(string: url))
