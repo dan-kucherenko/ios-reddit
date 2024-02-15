@@ -7,23 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A502FF012B7916AB003847E1 /* ApiResponsePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A502FF002B7916AB003847E1 /* ApiResponsePost.swift */; };
+		A502FF042B79197E003847E1 /* ApiInfoReciever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A502FF032B79197E003847E1 /* ApiInfoReciever.swift */; };
 		A58C2ECC2B76EF00005E15AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECB2B76EF00005E15AF /* AppDelegate.swift */; };
 		A58C2ECE2B76EF00005E15AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECD2B76EF00005E15AF /* SceneDelegate.swift */; };
-		A58C2ED02B76EF00005E15AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECF2B76EF00005E15AF /* ViewController.swift */; };
+		A58C2ED02B76EF00005E15AF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECF2B76EF00005E15AF /* PostViewController.swift */; };
 		A58C2ED32B76EF00005E15AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED12B76EF00005E15AF /* Main.storyboard */; };
 		A58C2ED52B76EF01005E15AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED42B76EF01005E15AF /* Assets.xcassets */; };
 		A58C2ED82B76EF01005E15AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED62B76EF01005E15AF /* LaunchScreen.storyboard */; };
+		A58C2EEB2B76FAD1005E15AF /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A58C2EEA2B76FAD1005E15AF /* SDWebImage */; };
+		A58C2EED2B76FAD1005E15AF /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A58C2EEC2B76FAD1005E15AF /* SDWebImageMapKit */; };
+		A5AD35DA2B77DF6700133B58 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD35D92B77DF6700133B58 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A502FF002B7916AB003847E1 /* ApiResponsePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponsePost.swift; sourceTree = "<group>"; };
+		A502FF032B79197E003847E1 /* ApiInfoReciever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInfoReciever.swift; sourceTree = "<group>"; };
 		A58C2EC82B76EF00005E15AF /* KucherenkoReddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KucherenkoReddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58C2ECB2B76EF00005E15AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A58C2ECD2B76EF00005E15AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A58C2ECF2B76EF00005E15AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A58C2ECF2B76EF00005E15AF /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		A58C2ED22B76EF00005E15AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A58C2ED42B76EF01005E15AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A58C2ED72B76EF01005E15AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A58C2ED92B76EF01005E15AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5AD35D92B77DF6700133B58 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +39,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58C2EED2B76FAD1005E15AF /* SDWebImageMapKit in Frameworks */,
+				A58C2EEB2B76FAD1005E15AF /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A502FEFC2B79165B003847E1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A5AD35D92B77DF6700133B58 /* Post.swift */,
+				A502FF002B7916AB003847E1 /* ApiResponsePost.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A502FEFD2B791669003847E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A58C2ED12B76EF00005E15AF /* Main.storyboard */,
+				A58C2ED62B76EF01005E15AF /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A502FEFF2B791681003847E1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A58C2ECF2B76EF00005E15AF /* PostViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A502FF022B791967003847E1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A502FF032B79197E003847E1 /* ApiInfoReciever.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		A58C2EBF2B76EF00005E15AF = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +100,13 @@
 		A58C2ECA2B76EF00005E15AF /* KucherenkoReddit */ = {
 			isa = PBXGroup;
 			children = (
+				A502FF022B791967003847E1 /* Utils */,
+				A502FEFF2B791681003847E1 /* ViewController */,
+				A502FEFD2B791669003847E1 /* Views */,
+				A502FEFC2B79165B003847E1 /* Model */,
 				A58C2ECB2B76EF00005E15AF /* AppDelegate.swift */,
 				A58C2ECD2B76EF00005E15AF /* SceneDelegate.swift */,
-				A58C2ECF2B76EF00005E15AF /* ViewController.swift */,
-				A58C2ED12B76EF00005E15AF /* Main.storyboard */,
 				A58C2ED42B76EF01005E15AF /* Assets.xcassets */,
-				A58C2ED62B76EF01005E15AF /* LaunchScreen.storyboard */,
 				A58C2ED92B76EF01005E15AF /* Info.plist */,
 			);
 			path = KucherenkoReddit;
@@ -84,6 +129,8 @@
 			);
 			name = KucherenkoReddit;
 			packageProductDependencies = (
+				A58C2EEA2B76FAD1005E15AF /* SDWebImage */,
+				A58C2EEC2B76FAD1005E15AF /* SDWebImageMapKit */,
 			);
 			productName = KucherenkoReddit;
 			productReference = A58C2EC82B76EF00005E15AF /* KucherenkoReddit.app */;
@@ -114,6 +161,7 @@
 			);
 			mainGroup = A58C2EBF2B76EF00005E15AF;
 			packageReferences = (
+				A58C2EE92B76FAD1005E15AF /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = A58C2EC92B76EF00005E15AF /* Products */;
 			projectDirPath = "";
@@ -142,9 +190,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A58C2ED02B76EF00005E15AF /* ViewController.swift in Sources */,
+				A58C2ED02B76EF00005E15AF /* PostViewController.swift in Sources */,
+				A502FF042B79197E003847E1 /* ApiInfoReciever.swift in Sources */,
 				A58C2ECC2B76EF00005E15AF /* AppDelegate.swift in Sources */,
 				A58C2ECE2B76EF00005E15AF /* SceneDelegate.swift in Sources */,
+				A5AD35DA2B77DF6700133B58 /* Post.swift in Sources */,
+				A502FF012B7916AB003847E1 /* ApiResponsePost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +426,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A58C2EE92B76FAD1005E15AF /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A58C2EEA2B76FAD1005E15AF /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A58C2EE92B76FAD1005E15AF /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		A58C2EEC2B76FAD1005E15AF /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A58C2EE92B76FAD1005E15AF /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A58C2EC02B76EF00005E15AF /* Project object */;
 }
