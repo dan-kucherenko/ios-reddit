@@ -8,8 +8,8 @@
 import Foundation
 
 struct ApiInfoReciever {
-    func getPosts() async -> [Post] {
-        let apiResponsePosts = await self.getInfoWithParams(subreddit: "r/ios", limit: 1, after: nil)
+    func getPosts(subreddit: String, after: String?) async -> [Post] {
+        let apiResponsePosts = await self.getInfoWithParams(subreddit: subreddit, limit: 15, after: after)
         print(apiResponsePosts as Any)
         var posts: [Post] = []
         

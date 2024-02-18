@@ -1,32 +1,41 @@
 //
-//  ViewController.swift
+//  PostView.swift
 //  KucherenkoReddit
 //
-//  Created by Daniil on 10.02.2024.
+//  Created by Daniil on 18.02.2024.
+//
 
 import UIKit
 import SDWebImage
 
-class PostViewController: UIViewController {
-    private let api = ApiInfoReciever()
-    private var post: Post?
-    
-    @IBOutlet private weak var author: UILabel!
+class PostView: UIView {
+    var post: Post?
+    let kCONTENT_XIB_NAME = "PostView"
+    @IBOutlet var postView: PostView!
+    @IBOutlet weak var author: UILabel!
     @IBOutlet private weak var postTime: UILabel!
     @IBOutlet private weak var domain: UILabel!
     @IBOutlet private weak var savedButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var viewImage: UIImageView!
     @IBOutlet private weak var rating: UIButton!
     @IBOutlet private weak var comments: UIButton!
-    @IBOutlet private weak var image: UIImageView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        Task {
-            post = await api.getPosts()[0]
-            setViewElements(post: post)
-        }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    func commonInit() {
+        Bundle.main.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
+        postView.fixInView(self)
+    }
+    
     
     @IBAction func onChangeSave(_ sender: UIButton) {
         post?.saved.toggle()
@@ -39,7 +48,7 @@ class PostViewController: UIViewController {
         }
     }
     
-    private func setViewElements(post: Post?) {
+    func setViewElements(post: Post?) {
         guard let post else { return }
         self.author.text = post.author
         self.postTime.text = convertTime(post.createdUtc)
@@ -64,14 +73,27 @@ class PostViewController: UIViewController {
     
     private func manageUrl(url: String?) {
         guard let url else {
-            self.image.image = UIImage(resource: .franks)
+            self.viewImage.image = UIImage(resource: .franks)
             return
         }
-        self.image.sd_setImage(with: URL(string: url))
+        self.viewImage.sd_setImage(with: URL(string: url))
     }
     
     private func setImage(image: String) {
         let config = UIImage.SymbolConfiguration(scale: .medium)
         self.savedButton.setImage(UIImage(systemName: image, withConfiguration: config), for: .normal)
+    }
+}
+
+extension UIView
+{
+    func fixInView(_ container: UIView!) -> Void{
+        self.translatesAutoresizingMaskIntoConstraints = false;
+        self.frame = container.frame;
+        container.addSubview(self);
+        NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: container, attribute: .leading, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: container, attribute: .trailing, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: container, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
+        NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: container, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
     }
 }

@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		A502FF012B7916AB003847E1 /* ApiResponsePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A502FF002B7916AB003847E1 /* ApiResponsePost.swift */; };
 		A502FF042B79197E003847E1 /* ApiInfoReciever.swift in Sources */ = {isa = PBXBuildFile; fileRef = A502FF032B79197E003847E1 /* ApiInfoReciever.swift */; };
+		A507ADE82B801AF50004A680 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507ADE62B801AF50004A680 /* PostTableViewCell.swift */; };
 		A51EB43E2B7E7C2B005CD283 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EB43D2B7E7C2B005CD283 /* PostListViewController.swift */; };
-		A51EB4402B7E7C52005CD283 /* PostsListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A51EB43F2B7E7C52005CD283 /* PostsListView.storyboard */; };
+		A54D70AC2B8228C400EB1F72 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54D70AB2B8228C400EB1F72 /* PostView.swift */; };
+		A54D70AE2B8228DD00EB1F72 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54D70AD2B8228DD00EB1F72 /* PostView.xib */; };
 		A58C2ECC2B76EF00005E15AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECB2B76EF00005E15AF /* AppDelegate.swift */; };
 		A58C2ECE2B76EF00005E15AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECD2B76EF00005E15AF /* SceneDelegate.swift */; };
-		A58C2ED02B76EF00005E15AF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECF2B76EF00005E15AF /* PostViewController.swift */; };
+		A58C2ED02B76EF00005E15AF /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECF2B76EF00005E15AF /* PostDetailViewController.swift */; };
 		A58C2ED32B76EF00005E15AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED12B76EF00005E15AF /* Main.storyboard */; };
 		A58C2ED52B76EF01005E15AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED42B76EF01005E15AF /* Assets.xcassets */; };
 		A58C2ED82B76EF01005E15AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED62B76EF01005E15AF /* LaunchScreen.storyboard */; };
@@ -25,12 +27,14 @@
 /* Begin PBXFileReference section */
 		A502FF002B7916AB003847E1 /* ApiResponsePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponsePost.swift; sourceTree = "<group>"; };
 		A502FF032B79197E003847E1 /* ApiInfoReciever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInfoReciever.swift; sourceTree = "<group>"; };
+		A507ADE62B801AF50004A680 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		A51EB43D2B7E7C2B005CD283 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
-		A51EB43F2B7E7C52005CD283 /* PostsListView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostsListView.storyboard; sourceTree = "<group>"; };
+		A54D70AB2B8228C400EB1F72 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		A54D70AD2B8228DD00EB1F72 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		A58C2EC82B76EF00005E15AF /* KucherenkoReddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KucherenkoReddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58C2ECB2B76EF00005E15AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A58C2ECD2B76EF00005E15AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A58C2ECF2B76EF00005E15AF /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		A58C2ECF2B76EF00005E15AF /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		A58C2ED22B76EF00005E15AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A58C2ED42B76EF01005E15AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A58C2ED72B76EF01005E15AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,9 +67,9 @@
 		A502FEFD2B791669003847E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A507ADEC2B80254E0004A680 /* PostView */,
 				A58C2ED12B76EF00005E15AF /* Main.storyboard */,
 				A58C2ED62B76EF01005E15AF /* LaunchScreen.storyboard */,
-				A51EB43F2B7E7C52005CD283 /* PostsListView.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -73,7 +77,7 @@
 		A502FEFF2B791681003847E1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A58C2ECF2B76EF00005E15AF /* PostViewController.swift */,
+				A58C2ECF2B76EF00005E15AF /* PostDetailViewController.swift */,
 				A51EB43D2B7E7C2B005CD283 /* PostListViewController.swift */,
 			);
 			path = ViewController;
@@ -85,6 +89,16 @@
 				A502FF032B79197E003847E1 /* ApiInfoReciever.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A507ADEC2B80254E0004A680 /* PostView */ = {
+			isa = PBXGroup;
+			children = (
+				A507ADE62B801AF50004A680 /* PostTableViewCell.swift */,
+				A54D70AB2B8228C400EB1F72 /* PostView.swift */,
+				A54D70AD2B8228DD00EB1F72 /* PostView.xib */,
+			);
+			path = PostView;
 			sourceTree = "<group>";
 		};
 		A58C2EBF2B76EF00005E15AF = {
@@ -185,8 +199,8 @@
 			files = (
 				A58C2ED82B76EF01005E15AF /* LaunchScreen.storyboard in Resources */,
 				A58C2ED52B76EF01005E15AF /* Assets.xcassets in Resources */,
+				A54D70AE2B8228DD00EB1F72 /* PostView.xib in Resources */,
 				A58C2ED32B76EF00005E15AF /* Main.storyboard in Resources */,
-				A51EB4402B7E7C52005CD283 /* PostsListView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,11 +212,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A51EB43E2B7E7C2B005CD283 /* PostListViewController.swift in Sources */,
-				A58C2ED02B76EF00005E15AF /* PostViewController.swift in Sources */,
+				A58C2ED02B76EF00005E15AF /* PostDetailViewController.swift in Sources */,
+				A507ADE82B801AF50004A680 /* PostTableViewCell.swift in Sources */,
 				A502FF042B79197E003847E1 /* ApiInfoReciever.swift in Sources */,
 				A58C2ECC2B76EF00005E15AF /* AppDelegate.swift in Sources */,
 				A58C2ECE2B76EF00005E15AF /* SceneDelegate.swift in Sources */,
 				A5AD35DA2B77DF6700133B58 /* Post.swift in Sources */,
+				A54D70AC2B8228C400EB1F72 /* PostView.swift in Sources */,
 				A502FF012B7916AB003847E1 /* ApiResponsePost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

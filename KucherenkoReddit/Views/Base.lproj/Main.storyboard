@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rZx-Sy-JwM">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -9,16 +9,104 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Post View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="UUd-GJ-YqG">
+            <objects>
+                <navigationController id="rZx-Sy-JwM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BXZ-I1-sCl">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Bvp-zH-gg1" kind="relationship" relationship="rootViewController" id="6yK-0O-SxA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JqW-CP-zYC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2315" y="-28"/>
+        </scene>
+        <!--Post List View Controller-->
+        <scene sceneID="x5L-aB-8mk">
+            <objects>
+                <viewController id="Bvp-zH-gg1" customClass="PostListViewController" customModule="KucherenkoReddit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bso-9C-YOc">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0p-3r-PyX">
+                                <rect key="frame" x="0.0" y="103" width="430" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P8n-Ab-rP0">
+                                <rect key="frame" x="0.0" y="140" width="430" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="post" rowHeight="300" id="lMq-h7-h2l" customClass="PostTableViewCell" customModule="KucherenkoReddit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="430" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lMq-h7-h2l" id="fMx-A1-G5m">
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-qF-bhs" customClass="PostView" customModule="KucherenkoReddit" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="430" height="300"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="h7w-qF-bhs" firstAttribute="top" secondItem="fMx-A1-G5m" secondAttribute="top" id="YoS-CD-wPS"/>
+                                                <constraint firstItem="h7w-qF-bhs" firstAttribute="leading" secondItem="fMx-A1-G5m" secondAttribute="leading" id="aRp-lC-R1Z"/>
+                                                <constraint firstAttribute="trailing" secondItem="h7w-qF-bhs" secondAttribute="trailing" id="gRZ-00-8xR"/>
+                                                <constraint firstAttribute="bottom" secondItem="h7w-qF-bhs" secondAttribute="bottom" id="uzQ-cY-hrJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postView" destination="h7w-qF-bhs" id="ACd-ki-pTO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Bvp-zH-gg1" id="Xh0-MF-cRy"/>
+                                    <outlet property="delegate" destination="Bvp-zH-gg1" id="atm-y9-z6s"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Rc-cz-kPV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Rc-cz-kPV" firstAttribute="trailing" secondItem="P8n-Ab-rP0" secondAttribute="trailing" id="4Dk-xa-v9d"/>
+                            <constraint firstItem="d0p-3r-PyX" firstAttribute="top" secondItem="9Rc-cz-kPV" secondAttribute="top" id="HTD-SE-2Hp"/>
+                            <constraint firstItem="d0p-3r-PyX" firstAttribute="leading" secondItem="9Rc-cz-kPV" secondAttribute="leading" id="Qth-ab-Dq9"/>
+                            <constraint firstItem="P8n-Ab-rP0" firstAttribute="leading" secondItem="9Rc-cz-kPV" secondAttribute="leading" id="SAE-w2-5I9"/>
+                            <constraint firstItem="9Rc-cz-kPV" firstAttribute="trailing" secondItem="d0p-3r-PyX" secondAttribute="trailing" id="Zlt-Ym-nEC"/>
+                            <constraint firstItem="P8n-Ab-rP0" firstAttribute="top" secondItem="d0p-3r-PyX" secondAttribute="bottom" id="ql8-rA-DBu"/>
+                            <constraint firstItem="9Rc-cz-kPV" firstAttribute="bottom" secondItem="P8n-Ab-rP0" secondAttribute="bottom" id="sNe-j8-9FT"/>
+                            <constraint firstItem="d0p-3r-PyX" firstAttribute="top" secondItem="9Rc-cz-kPV" secondAttribute="top" id="woU-y0-DIq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="K4n-lz-ZJf"/>
+                    <connections>
+                        <outlet property="postsTable" destination="P8n-Ab-rP0" id="tJ9-1n-xk9"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="go_to_post_detail" id="Go0-G4-Bav"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Loc-ki-Gly" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1500" y="-28"/>
+        </scene>
+        <!--Post Detail View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PostViewController" customModule="KucherenkoReddit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="BYZ-38-t0r" customClass="PostDetailViewController" customModule="KucherenkoReddit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="PostView" customModule="KucherenkoReddit" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrj-AK-brI" userLabel="Post View">
-                                <rect key="frame" x="0.0" y="328.66666666666669" width="430" height="300.00000000000006"/>
+                                <rect key="frame" x="0.0" y="350.66666666666669" width="430" height="300.00000000000006"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pV5-kD-NFP" userLabel="Info View">
                                         <rect key="frame" x="0.0" y="0.0" width="430" height="20"/>
@@ -55,9 +143,6 @@
                                                     <imageReference key="image" image="bookmark" catalog="system" symbolScale="medium"/>
                                                     <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                                 </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="onChangeSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QaZ-bx-8LS"/>
-                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UC1-mB-94P" userLabel="Dop">
                                                 <rect key="frame" x="141" y="0.0" width="23.333333333333343" height="20"/>
@@ -163,20 +248,11 @@
                             <constraint firstItem="zrj-AK-brI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="etc-bn-IcT"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="author" destination="Pus-q6-ZRC" id="7nh-sV-LlW"/>
-                        <outlet property="comments" destination="YOC-pa-cAR" id="Avg-Yd-de6"/>
-                        <outlet property="domain" destination="bTg-5c-z9l" id="KEj-yX-FWN"/>
-                        <outlet property="image" destination="g42-Uw-vUx" id="Fob-3t-V7d"/>
-                        <outlet property="postTime" destination="UC1-mB-94P" id="M1K-gX-YbZ"/>
-                        <outlet property="rating" destination="0Lt-TI-KBS" id="AYS-TD-EUC"/>
-                        <outlet property="savedButton" destination="mYA-1N-Of1" id="VaU-vb-hJx"/>
-                        <outlet property="titleLabel" destination="HB1-x0-gif" id="cce-Qx-fbj"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="QWg-b7-gyh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129.76744186046511" y="-27.682403433476395"/>
+            <point key="canvasLocation" x="-678" y="-28"/>
         </scene>
     </scenes>
     <resources>
