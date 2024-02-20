@@ -13,6 +13,7 @@
 		A51EB43E2B7E7C2B005CD283 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EB43D2B7E7C2B005CD283 /* PostListViewController.swift */; };
 		A54D70AC2B8228C400EB1F72 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54D70AB2B8228C400EB1F72 /* PostView.swift */; };
 		A54D70AE2B8228DD00EB1F72 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54D70AD2B8228DD00EB1F72 /* PostView.xib */; };
+		A57C28962B84A4EF008F94B8 /* PostSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C28952B84A4EF008F94B8 /* PostSelectionDelegate.swift */; };
 		A58C2ECC2B76EF00005E15AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECB2B76EF00005E15AF /* AppDelegate.swift */; };
 		A58C2ECE2B76EF00005E15AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECD2B76EF00005E15AF /* SceneDelegate.swift */; };
 		A58C2ED02B76EF00005E15AF /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECF2B76EF00005E15AF /* PostDetailViewController.swift */; };
@@ -31,6 +32,7 @@
 		A51EB43D2B7E7C2B005CD283 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		A54D70AB2B8228C400EB1F72 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		A54D70AD2B8228DD00EB1F72 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		A57C28952B84A4EF008F94B8 /* PostSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSelectionDelegate.swift; sourceTree = "<group>"; };
 		A58C2EC82B76EF00005E15AF /* KucherenkoReddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KucherenkoReddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58C2ECB2B76EF00005E15AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A58C2ECD2B76EF00005E15AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				A502FF032B79197E003847E1 /* ApiInfoReciever.swift */,
+				A57C28952B84A4EF008F94B8 /* PostSelectionDelegate.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				A58C2ECC2B76EF00005E15AF /* AppDelegate.swift in Sources */,
 				A58C2ECE2B76EF00005E15AF /* SceneDelegate.swift in Sources */,
 				A5AD35DA2B77DF6700133B58 /* Post.swift in Sources */,
+				A57C28962B84A4EF008F94B8 /* PostSelectionDelegate.swift in Sources */,
 				A54D70AC2B8228C400EB1F72 /* PostView.swift in Sources */,
 				A502FF012B7916AB003847E1 /* ApiResponsePost.swift in Sources */,
 			);
