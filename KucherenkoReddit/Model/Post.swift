@@ -32,7 +32,7 @@ struct Post {
     
     private func manageImageExistence(post: ChildData?) -> String? {
         guard let post else { return nil }
-        if let url = post.url {
+        if let url = post.url, url.contains(".jpeg"), url.contains(".jpg") {
             return url
         } else if let preview = post.preview, preview.enabled, let imageUrl = preview.images.first?.source.url {
             return imageUrl.replacingOccurrences(of: "&amp;", with: "&")

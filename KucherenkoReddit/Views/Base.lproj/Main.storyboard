@@ -44,9 +44,15 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8m4-U4-WzC">
                                         <rect key="frame" x="375.33333333333331" y="0.0" width="49.666666666666686" height="40"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="">
+                                            <color key="titleColor" systemColor="systemYellowColor"/>
+                                            <imageReference key="image" image="bookmark.circle" catalog="system" symbolScale="large"/>
+                                        </state>
                                         <buttonConfiguration key="configuration" style="plain" title="">
                                             <imageReference key="image" image="bookmark.circle" catalog="system" symbolScale="large"/>
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                             <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                         </buttonConfiguration>
                                     </button>
@@ -56,7 +62,6 @@
                                     <constraint firstItem="d6R-lI-hdg" firstAttribute="centerX" secondItem="nfF-1g-XXY" secondAttribute="centerX" id="95V-Co-ZOF"/>
                                     <constraint firstItem="d6R-lI-hdg" firstAttribute="centerY" secondItem="nfF-1g-XXY" secondAttribute="centerY" id="ErJ-VE-yq8"/>
                                     <constraint firstItem="8m4-U4-WzC" firstAttribute="top" secondItem="nfF-1g-XXY" secondAttribute="top" id="K7T-cN-ZCt"/>
-                                    <constraint firstItem="8m4-U4-WzC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d6R-lI-hdg" secondAttribute="trailing" constant="125.33" id="TDT-3l-4jt"/>
                                     <constraint firstAttribute="height" constant="40" id="gU2-Hx-pZ2"/>
                                     <constraint firstAttribute="bottom" secondItem="8m4-U4-WzC" secondAttribute="bottom" id="lO2-Xs-Sli"/>
                                     <constraint firstAttribute="trailing" secondItem="8m4-U4-WzC" secondAttribute="trailing" constant="5" id="zu6-nm-YXO"/>

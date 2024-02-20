@@ -15,7 +15,7 @@ class PostListViewController: UIViewController, PostSelectionDelegate {
     // MARK: Const
     struct Const {
         static let cellIdentifier = "post"
-        static let defaultSubreddit = "r/ios"
+        static let defaultSubreddit = "r/SteamDeck"
         static let gotoDetailViewSegueId = "go_to_post_detail"
     }
     
