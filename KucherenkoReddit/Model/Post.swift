@@ -9,6 +9,7 @@ import Foundation
 
 struct Post {
     let author: String
+    let postName: String
     let createdUtc: Int
     let domain: String
     var saved: Bool
@@ -19,9 +20,10 @@ struct Post {
     
     init(from apiChild: ChildData){
         self.author = apiChild.author
+        self.postName = apiChild.name
         self.createdUtc = apiChild.createdUtc
         self.domain = apiChild.domain
-        self.saved = Bool.random()
+        self.saved = apiChild.saved
         self.title = apiChild.title
         self.score = apiChild.score
         self.numComments = apiChild.numComments

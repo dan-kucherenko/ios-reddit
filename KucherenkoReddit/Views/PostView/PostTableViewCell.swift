@@ -1,5 +1,5 @@
 //
-//  PostView.swift
+//  PostTableViewCell.swift
 //  KucherenkoReddit
 //
 //  Created by Daniil on 17.02.2024.
@@ -8,8 +8,10 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
+    // MARK: Outlet
     @IBOutlet private weak var postView: PostView!
-    func setUp(post: Post) {
-        postView.setViewElements(post: post)
+    
+    func config(post: Post) {
+        postView.config(post: post)
     }
 }

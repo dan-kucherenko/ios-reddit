@@ -10,17 +10,26 @@ import SDWebImage
 
 class PostView: UIView {
     var post: Post?
-    let kCONTENT_XIB_NAME = "PostView"
-    @IBOutlet var postView: PostView!
-    @IBOutlet weak var author: UILabel!
+
+    // MARK: Outlets
+    @IBOutlet var postView: UIView!
+    @IBOutlet private weak var author: UILabel!
     @IBOutlet private weak var postTime: UILabel!
     @IBOutlet private weak var domain: UILabel!
-    @IBOutlet private weak var savedButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var savedButton: UIButton!
     @IBOutlet private weak var viewImage: UIImageView!
     @IBOutlet private weak var rating: UIButton!
     @IBOutlet private weak var comments: UIButton!
     
+    
+    // MARK: Constants
+    struct Const {
+        static let savedBtnImage = "bookmark.fill"
+        static let defaultBtnImage = "bookmark"
+    }
+    let kCONTENT_XIB_NAME = "PostView"
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -30,26 +39,27 @@ class PostView: UIView {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
     func commonInit() {
         Bundle.main.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
         postView.fixInView(self)
     }
     
-    
-    @IBAction func onChangeSave(_ sender: UIButton) {
+    // MARK: Outlet action
+    @IBAction func onChangeSave(_ sender: Any) {
         post?.saved.toggle()
         guard let saved = post?.saved else {return}
-        print(saved)
+        print(post?.saved)
         if saved {
-            setImage(image: "bookmark.fill")
+            setImage(image: Const.savedBtnImage)
         } else {
-            setImage(image: "bookmark")
+            setImage(image: Const.defaultBtnImage)
         }
     }
     
-    func setViewElements(post: Post?) {
+    // MARK: config methods
+    func config(post: Post?) {
         guard let post else { return }
+        self.post = post
         self.author.text = post.author
         self.postTime.text = convertTime(post.createdUtc)
         self.domain.text = post.domain
@@ -59,7 +69,7 @@ class PostView: UIView {
         self.rating.setTitle(String(post.score), for: .normal)
         self.comments.setTitle(String(post.numComments), for: .normal)
         
-        let savedBtnImageStr = savedButton.isSelected ? "bookmark.fill" : "bookmark"
+        let savedBtnImageStr = savedButton.isSelected ? Const.savedBtnImage : Const.defaultBtnImage
         setImage(image: savedBtnImageStr)
     }
     
@@ -85,8 +95,7 @@ class PostView: UIView {
     }
 }
 
-extension UIView
-{
+extension UIView {
     func fixInView(_ container: UIView!) -> Void{
         self.translatesAutoresizingMaskIntoConstraints = false;
         self.frame = container.frame;
