@@ -8,35 +8,43 @@
 import Foundation
 
 struct ApiInfoReciever {
-    func getPosts() async -> [Post] {
-        let apiResponsePosts = await self.getInfoWithParams(subreddit: "r/ios", limit: 1, after: nil)
-        print(apiResponsePosts as Any)
+    // MARK: constants
+    let defaultEndpoint = "https://www.reddit.com/"
+    let endpointTail = "/top.json"
+    let limitQueryItem = "limit"
+    let afterQueryItem = "after"
+    
+    
+    func getPosts(subreddit: String, after: String = "") async -> [Post] {
+        let apiResponsePosts = await self.getInfoWithParams(subreddit: subreddit, limit: 15, after: after)
         var posts: [Post] = []
         
-        guard let apiResponsePosts else { print("Posts are empty"); return [] }
+        guard let apiResponsePosts else {
+            print("Posts are empty")
+            return []
+        }
+        
         apiResponsePosts.data.children.forEach{
             posts.append(Post(from: $0.data))
         }
-        print(posts)
         return posts
     }
     
-    private func getInfoWithParams(subreddit: String, limit: Int, after: String?) async -> ApiResponsePost? {
+    private func getInfoWithParams(subreddit: String, limit: Int, after: String) async -> ApiResponsePost? {
         let limit = String(limit)
+        let endPoint = defaultEndpoint + subreddit + endpointTail
+        var post: ApiResponsePost?
         
-        let endPoint = "https://www.reddit.com/" + subreddit + "/top.json"
         guard var composedUrl = URLComponents(string: endPoint) else {
             print("Error in creating URL")
             return nil
         }
         
         composedUrl.queryItems = [
-            URLQueryItem(name: "limit", value: limit),
-            URLQueryItem(name: "after", value: after)
+            URLQueryItem(name: limitQueryItem, value: limit),
+            URLQueryItem(name: afterQueryItem, value: after)
         ]
         
-        var data: Data?
-        var apiPost: ApiResponsePost?
         guard let url = composedUrl.url else {
             print("Error in creating URL")
             return nil
@@ -45,13 +53,17 @@ struct ApiInfoReciever {
     
         do {
             let (apiData, _) = try await URLSession.shared.data(from: url)
-            data = apiData
+            post = decodeData(data: apiData)
         } catch {
             print("Error getting the data from api")
         }
-        
-        guard let data else {print("Data is nil"); return nil}
-        
+            
+        return post
+    }
+    
+    
+    private func decodeData(data: Data) -> ApiResponsePost? {
+        var apiPost: ApiResponsePost?
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase

@@ -21,6 +21,7 @@ struct Child: Codable {
 
 struct ChildData: Codable {
     let author: String
+    let name: String
     let createdUtc: Int
     let domain: String
     let saved: Bool
