@@ -59,6 +59,7 @@ class PostListViewController: UIViewController, PostSelectionDelegate {
             self.posts = StorageManager.shared.getSavedPosts()
             postsTable.reloadData()
         } else {
+            searchBar.resignFirstResponder()
             self.searchView.isHidden = true
             self.posts = prevPosts
             postsTable.reloadData()
