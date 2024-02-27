@@ -37,8 +37,8 @@
                                 <rect key="frame" x="0.0" y="103" width="430" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6R-lI-hdg">
-                                        <rect key="frame" x="186.33333333333334" y="3.3333333333333286" width="57.666666666666657" height="33.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <rect key="frame" x="190.33333333333334" y="5.6666666666666732" width="49.333333333333343" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -53,7 +53,6 @@
                                         </state>
                                         <buttonConfiguration key="configuration" style="plain" title="">
                                             <imageReference key="image" image="bookmark.circle" catalog="system" symbolScale="large"/>
-                                            <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                             <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -71,58 +70,111 @@
                                     <constraint firstAttribute="trailing" secondItem="8m4-U4-WzC" secondAttribute="trailing" constant="5" id="zu6-nm-YXO"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P8n-Ab-rP0">
-                                <rect key="frame" x="0.0" y="143" width="430" height="755"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="post" rowHeight="300" id="lMq-h7-h2l" customClass="PostTableViewCell" customModule="KucherenkoReddit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="430" height="300"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lMq-h7-h2l" id="fMx-A1-G5m">
-                                            <rect key="frame" x="0.0" y="0.0" width="430" height="300"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-qF-bhs" customClass="PostView" customModule="KucherenkoReddit" customModuleProvider="target">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yo5-rH-UhD">
+                                <rect key="frame" x="0.0" y="143" width="430" height="789"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ax0-lN-xZG" userLabel="Search Bar">
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="35"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kf6-zZ-PRK" userLabel="Input">
+                                                <rect key="frame" x="25.333333333333343" y="0.0" width="404.66666666666663" height="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="searchBarTextEdited:" destination="Bvp-zH-gg1" eventType="editingChanged" id="kkz-TA-iS3"/>
+                                                </connections>
+                                            </textField>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="M7z-tC-df7">
+                                                <rect key="frame" x="5" y="0.99999999999999645" width="20.333333333333332" height="33.333333333333329"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="tintColor" systemColor="systemGrayColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="2yG-9k-PQU"/>
+                                            <constraint firstAttribute="trailing" secondItem="Kf6-zZ-PRK" secondAttribute="trailing" id="H5q-0r-LU5"/>
+                                            <constraint firstItem="M7z-tC-df7" firstAttribute="leading" secondItem="ax0-lN-xZG" secondAttribute="leading" constant="5" id="HQW-eP-gq5"/>
+                                            <constraint firstAttribute="bottom" secondItem="M7z-tC-df7" secondAttribute="bottom" id="a5P-pH-YvI"/>
+                                            <constraint firstItem="Kf6-zZ-PRK" firstAttribute="leading" secondItem="M7z-tC-df7" secondAttribute="trailing" id="drj-Q6-RYm"/>
+                                            <constraint firstAttribute="bottom" secondItem="Kf6-zZ-PRK" secondAttribute="bottom" id="ke3-dd-tZm"/>
+                                            <constraint firstItem="M7z-tC-df7" firstAttribute="top" secondItem="ax0-lN-xZG" secondAttribute="top" id="ofq-iv-LNS"/>
+                                            <constraint firstItem="Kf6-zZ-PRK" firstAttribute="top" secondItem="ax0-lN-xZG" secondAttribute="top" id="p0v-g0-q5E"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layout.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P8n-Ab-rP0">
+                                        <rect key="frame" x="0.0" y="35" width="430" height="754"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="post" rowHeight="300" id="lMq-h7-h2l" customClass="PostTableViewCell" customModule="KucherenkoReddit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="430" height="300"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lMq-h7-h2l" id="fMx-A1-G5m">
                                                     <rect key="frame" x="0.0" y="0.0" width="430" height="300"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="h7w-qF-bhs" firstAttribute="top" secondItem="fMx-A1-G5m" secondAttribute="top" id="YoS-CD-wPS"/>
-                                                <constraint firstItem="h7w-qF-bhs" firstAttribute="leading" secondItem="fMx-A1-G5m" secondAttribute="leading" id="aRp-lC-R1Z"/>
-                                                <constraint firstAttribute="trailing" secondItem="h7w-qF-bhs" secondAttribute="trailing" id="gRZ-00-8xR"/>
-                                                <constraint firstAttribute="bottom" secondItem="h7w-qF-bhs" secondAttribute="bottom" id="uzQ-cY-hrJ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-qF-bhs" customClass="PostView" customModule="KucherenkoReddit" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="430" height="300"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="h7w-qF-bhs" firstAttribute="leading" secondItem="fMx-A1-G5m" secondAttribute="leading" id="635-zh-Cn1"/>
+                                                        <constraint firstItem="h7w-qF-bhs" firstAttribute="top" secondItem="fMx-A1-G5m" secondAttribute="top" id="CMY-hY-4hH"/>
+                                                        <constraint firstAttribute="bottom" secondItem="h7w-qF-bhs" secondAttribute="bottom" id="X6e-Vz-xaU"/>
+                                                        <constraint firstItem="h7w-qF-bhs" firstAttribute="top" secondItem="fMx-A1-G5m" secondAttribute="top" id="YoS-CD-wPS"/>
+                                                        <constraint firstItem="h7w-qF-bhs" firstAttribute="leading" secondItem="fMx-A1-G5m" secondAttribute="leading" id="aRp-lC-R1Z"/>
+                                                        <constraint firstAttribute="trailing" secondItem="h7w-qF-bhs" secondAttribute="trailing" id="gK8-Uw-lZB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="h7w-qF-bhs" secondAttribute="trailing" id="gRZ-00-8xR"/>
+                                                        <constraint firstAttribute="bottom" secondItem="h7w-qF-bhs" secondAttribute="bottom" id="uzQ-cY-hrJ"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="postView" destination="h7w-qF-bhs" id="ACd-ki-pTO"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <sections/>
                                         <connections>
-                                            <outlet property="postView" destination="h7w-qF-bhs" id="ACd-ki-pTO"/>
+                                            <outlet property="dataSource" destination="Bvp-zH-gg1" id="Xh0-MF-cRy"/>
+                                            <outlet property="delegate" destination="Bvp-zH-gg1" id="atm-y9-z6s"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Bvp-zH-gg1" id="Xh0-MF-cRy"/>
-                                    <outlet property="delegate" destination="Bvp-zH-gg1" id="atm-y9-z6s"/>
-                                </connections>
-                            </tableView>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="P8n-Ab-rP0" secondAttribute="bottom" id="0ig-ig-EKd"/>
+                                    <constraint firstAttribute="trailing" secondItem="ax0-lN-xZG" secondAttribute="trailing" id="1rI-LF-J5u"/>
+                                    <constraint firstItem="ax0-lN-xZG" firstAttribute="top" secondItem="Yo5-rH-UhD" secondAttribute="top" id="Fno-ed-vOM"/>
+                                    <constraint firstItem="P8n-Ab-rP0" firstAttribute="top" secondItem="ax0-lN-xZG" secondAttribute="bottom" id="MIM-5f-UA4"/>
+                                    <constraint firstAttribute="trailing" secondItem="P8n-Ab-rP0" secondAttribute="trailing" id="UHt-bk-UmR"/>
+                                    <constraint firstItem="P8n-Ab-rP0" firstAttribute="leading" secondItem="Yo5-rH-UhD" secondAttribute="leading" id="UdC-2t-pBX"/>
+                                    <constraint firstItem="ax0-lN-xZG" firstAttribute="leading" secondItem="Yo5-rH-UhD" secondAttribute="leading" id="hlx-Ip-ojz"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Rc-cz-kPV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9Rc-cz-kPV" firstAttribute="trailing" secondItem="P8n-Ab-rP0" secondAttribute="trailing" id="4Dk-xa-v9d"/>
-                            <constraint firstItem="P8n-Ab-rP0" firstAttribute="leading" secondItem="9Rc-cz-kPV" secondAttribute="leading" id="SAE-w2-5I9"/>
+                            <constraint firstItem="Yo5-rH-UhD" firstAttribute="top" secondItem="nfF-1g-XXY" secondAttribute="bottom" id="4tW-Ss-ODm"/>
+                            <constraint firstAttribute="trailing" secondItem="Yo5-rH-UhD" secondAttribute="trailing" id="5AC-BY-qFb"/>
+                            <constraint firstItem="Yo5-rH-UhD" firstAttribute="leading" secondItem="9Rc-cz-kPV" secondAttribute="leading" id="Bpg-gX-4mc"/>
+                            <constraint firstAttribute="bottom" secondItem="Yo5-rH-UhD" secondAttribute="bottom" id="HGt-ub-CP8"/>
                             <constraint firstItem="9Rc-cz-kPV" firstAttribute="trailing" secondItem="nfF-1g-XXY" secondAttribute="trailing" id="gOs-4x-szS"/>
                             <constraint firstItem="nfF-1g-XXY" firstAttribute="top" secondItem="9Rc-cz-kPV" secondAttribute="top" id="rTl-Dq-1Em"/>
-                            <constraint firstItem="9Rc-cz-kPV" firstAttribute="bottom" secondItem="P8n-Ab-rP0" secondAttribute="bottom" id="sNe-j8-9FT"/>
                             <constraint firstItem="nfF-1g-XXY" firstAttribute="leading" secondItem="9Rc-cz-kPV" secondAttribute="leading" id="uwU-I5-6Hu"/>
-                            <constraint firstItem="P8n-Ab-rP0" firstAttribute="top" secondItem="nfF-1g-XXY" secondAttribute="bottom" id="xp8-gf-l5u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K4n-lz-ZJf"/>
                     <connections>
                         <outlet property="postsTable" destination="P8n-Ab-rP0" id="tJ9-1n-xk9"/>
                         <outlet property="savedPostsBtn" destination="8m4-U4-WzC" id="bFN-C7-HYT"/>
+                        <outlet property="searchBar" destination="Kf6-zZ-PRK" id="k9z-xB-7Dq"/>
+                        <outlet property="searchView" destination="ax0-lN-xZG" id="5Nb-lg-WGN"/>
                         <outlet property="subredditLbl" destination="d6R-lI-hdg" id="ljz-vQ-NnF"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="go_to_post_detail" id="hIt-CS-3cj"/>
                     </connections>
@@ -167,8 +219,12 @@
     </scenes>
     <resources>
         <image name="bookmark.circle" catalog="system" width="128" height="123"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
