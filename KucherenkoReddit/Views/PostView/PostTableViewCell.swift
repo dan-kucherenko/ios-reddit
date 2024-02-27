@@ -9,7 +9,7 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     // MARK: Outlet
-    @IBOutlet private weak var postView: PostView!
+    @IBOutlet weak var postView: PostView!
     
     func config(post: Post) {
         postView.config(post: post)

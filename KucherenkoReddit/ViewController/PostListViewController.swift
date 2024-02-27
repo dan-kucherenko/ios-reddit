@@ -11,21 +11,27 @@ class PostListViewController: UIViewController, PostSelectionDelegate {
     // MARK: Outlets
     @IBOutlet private weak var postsTable: UITableView!
     @IBOutlet private weak var subredditLbl: UILabel!
+    @IBOutlet private weak var savedPostsBtn: UIButton!
     
     // MARK: Const
     struct Const {
         static let cellIdentifier = "post"
         static let defaultSubreddit = "r/SteamDeck"
         static let gotoDetailViewSegueId = "go_to_post_detail"
+        static let savedBtnImage = "bookmark.circle.fill"
+        static let defaultBtnImage = "bookmark.circle"
     }
     
     // MARK: Variables
     private var isLastPost = false
     private var isLoadingData = false
+    private var showSavedPosts = false
     private let api = ApiInfoReciever()
+    private let fileManager = FileManager.default
     private var posts = [Post?]()
     private var lastSelectedPost: Post?
     var selectedPost: Post?
+    weak var savedStateDelegate: SavedStateDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +40,34 @@ class PostListViewController: UIViewController, PostSelectionDelegate {
             self.subredditLbl.text = Const.defaultSubreddit
             self.postsTable.reloadData()
         }
-    }   
+    }
+    
+    @IBAction func onSavedPostsClicked(_ sender: Any) {
+        showSavedPosts.toggle()
+        showSavedPosts ? setSavedImage() : setUnsavedImage()
+        if showSavedPosts {
+            self.posts = StorageManager.shared.getPosts()
+            postsTable.reloadData()
+        } else {
+            Task {
+                self.posts = await api.getPosts(subreddit: Const.defaultSubreddit)
+                postsTable.reloadData()
+            }
+        }
+    }
+    
+    private func setSavedImage() {
+        setImage(image: Const.savedBtnImage)
+    }
+    
+    private func setUnsavedImage() {
+        setImage(image: Const.defaultBtnImage)
+    }
+    
+    private func setImage(image: String) {
+        let config = UIImage.SymbolConfiguration(scale: .large)
+        self.savedPostsBtn.setImage(UIImage(systemName: image, withConfiguration: config), for: .normal)
+    }
 }
 
 
@@ -51,6 +84,10 @@ extension PostListViewController: UITableViewDataSource {
             for: indexPath) as! PostTableViewCell
         guard let post = posts[indexPath.row] else {return cell}
         cell.config(post: post)
+        
+        cell.postView.sharedBtnListDelegate = self
+        cell.postView.saveListBtnDelegate = self
+        
         return cell
     }
 }
@@ -61,7 +98,8 @@ extension PostListViewController: UITableViewDelegate {
         switch segue.identifier{
         case Const.gotoDetailViewSegueId:
             let nextVc = segue.destination as! PostDetailViewController
-            nextVc.delegate = self
+            nextVc.selectionDelegate = self
+            nextVc.savedStateDelegate = self
         default: break
         }
     }
@@ -76,7 +114,7 @@ extension PostListViewController: UITableViewDelegate {
             self.lastSelectedPost = lastPost
         }
         
-        if !isLoadingData && !isLastPost {
+        if !isLoadingData && !isLastPost && !showSavedPosts {
             if let visibleIndexPaths = postsTable.indexPathsForVisibleRows,
                let lastIndex = visibleIndexPaths.last {
                 
@@ -92,7 +130,7 @@ extension PostListViewController: UITableViewDelegate {
     }
     
     private func loadPosts(after: String?) {
-        guard let after else {return}
+        guard let after else { return }
         Task {
             let newPosts = await api.getPosts(subreddit: Const.defaultSubreddit, after: after)
             guard !newPosts.isEmpty else {
@@ -110,3 +148,42 @@ extension PostListViewController: UITableViewDelegate {
     }
 }
 
+
+extension PostListViewController: ShareButtonListDelegate {
+    func shareButtonClicked(postView: PostView) {
+        guard let url = postView.post?.permalink else { return }
+        let items = [URL(string: url)!]
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(activityViewController, animated: true)
+    }
+}
+
+extension PostListViewController: SavedButtonListDelegate {
+    func savedButtonClicked(postView: PostView) {
+        postView.post?.saved.toggle()
+        guard let saved = postView.post?.saved else { return }
+        saved ? postView.setSavedImage() : postView.setUnsavedImage()
+        StorageManager.shared.togglePostSave(postView.post ?? Post())
+        savedStateDelegate?.didChangeSavedState(for: postView)
+    }
+}
+
+extension PostListViewController: SavedStateDelegate {
+    func didChangeSavedState(for postView: PostView) {
+//        postView.post?.saved.toggle()
+//        guard let saved = postView.post?.saved else { return }
+//        saved ? postView.setSavedImage() : postView.setUnsavedImage()
+//        StorageManager.shared.togglePostSave(postView.post ?? Post())
+        
+        guard let postName = postView.post?.postName else { return }
+        
+        for (index, post) in posts.enumerated() {
+            if post?.postName == postName {
+                posts[index]?.saved.toggle()
+                let indexPath = IndexPath(row: index, section: 0)
+                postsTable.reloadRows(at: [indexPath], with: .automatic)
+                break
+            }
+        }
+    }
+}

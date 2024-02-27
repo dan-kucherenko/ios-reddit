@@ -30,6 +30,7 @@ struct ChildData: Codable {
     let numComments: Int
     let url: String?
     let preview: Preview?
+    let permalink: String
     struct Preview: Codable {
         let images: [Image]
         let enabled: Bool

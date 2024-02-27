@@ -45,6 +45,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8m4-U4-WzC">
                                         <rect key="frame" x="375.33333333333331" y="0.0" width="49.666666666666686" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="">
                                             <color key="titleColor" systemColor="systemYellowColor"/>
@@ -55,6 +56,9 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                             <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onSavedPostsClicked:" destination="Bvp-zH-gg1" eventType="touchUpInside" id="QTT-Bj-mMd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -90,6 +94,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="h7w-qF-bhs" secondAttribute="bottom" id="uzQ-cY-hrJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="postView" destination="h7w-qF-bhs" id="ACd-ki-pTO"/>
                                         </connections>
@@ -117,6 +122,7 @@
                     <navigationItem key="navigationItem" id="K4n-lz-ZJf"/>
                     <connections>
                         <outlet property="postsTable" destination="P8n-Ab-rP0" id="tJ9-1n-xk9"/>
+                        <outlet property="savedPostsBtn" destination="8m4-U4-WzC" id="bFN-C7-HYT"/>
                         <outlet property="subredditLbl" destination="d6R-lI-hdg" id="ljz-vQ-NnF"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="go_to_post_detail" id="hIt-CS-3cj"/>
                     </connections>
@@ -151,7 +157,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="QWg-b7-gyh"/>
                     <connections>
-                        <outlet property="postDetailView" destination="zrj-AK-brI" id="V23-aX-6n1"/>
+                        <outlet property="postDetailView" destination="zrj-AK-brI" id="lmD-QN-4eg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
