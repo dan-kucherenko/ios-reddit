@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol PostSelectionDelegate {
-    var selectedPost: Post? {get}
+protocol PostSelectionDelegate: AnyObject {
+    var selectedPost: Post? { get }
 }
