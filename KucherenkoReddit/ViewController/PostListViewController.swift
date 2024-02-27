@@ -12,6 +12,8 @@ class PostListViewController: UIViewController, PostSelectionDelegate {
     @IBOutlet private weak var postsTable: UITableView!
     @IBOutlet private weak var subredditLbl: UILabel!
     @IBOutlet private weak var savedPostsBtn: UIButton!
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchBar: UITextField!
     
     // MARK: Const
     struct Const {
@@ -28,8 +30,12 @@ class PostListViewController: UIViewController, PostSelectionDelegate {
     private var showSavedPosts = false
     private let api = ApiInfoReciever()
     private let fileManager = FileManager.default
+    
     private var posts = [Post?]()
+    private var prevPosts = [Post?]()
+    private var filteredPosts = [Post?]()
     private var lastSelectedPost: Post?
+    
     var selectedPost: Post?
     weak var savedStateDelegate: SavedStateDelegate?
     
@@ -37,7 +43,9 @@ class PostListViewController: UIViewController, PostSelectionDelegate {
         super.viewDidLoad()
         Task {
             self.posts = await api.getPosts(subreddit: Const.defaultSubreddit)
+            checkPosts()
             self.subredditLbl.text = Const.defaultSubreddit
+            self.searchView.isHidden = true
             self.postsTable.reloadData()
         }
     }
@@ -46,12 +54,35 @@ class PostListViewController: UIViewController, PostSelectionDelegate {
         showSavedPosts.toggle()
         showSavedPosts ? setSavedImage() : setUnsavedImage()
         if showSavedPosts {
-            self.posts = StorageManager.shared.getPosts()
+            self.searchView.isHidden = false
+            self.prevPosts = posts
+            self.posts = StorageManager.shared.getSavedPosts()
             postsTable.reloadData()
         } else {
-            Task {
-                self.posts = await api.getPosts(subreddit: Const.defaultSubreddit)
-                postsTable.reloadData()
+            self.searchView.isHidden = true
+            self.posts = prevPosts
+            postsTable.reloadData()
+        }
+    }
+    
+    @IBAction func searchBarTextEdited(_ sender: UITextField) {
+        if let searchText = sender.text, !searchText.isEmpty {
+            posts = StorageManager.shared.getSavedPosts().filter { $0.title.localizedCaseInsensitiveContains(searchText) }
+        } else {
+            posts = StorageManager.shared.getSavedPosts()
+        }
+        postsTable.reloadData()
+    }
+        
+    
+    private func checkPosts() {
+        let savedPosts = StorageManager.shared.getSavedPosts()
+
+        for (index, post) in self.posts.enumerated() {
+            if savedPosts.contains(post ?? Post()) {
+                if let savedPost = savedPosts.first(where: { $0 == post }) {
+                    self.posts[index] = savedPost
+                }
             }
         }
     }
@@ -161,9 +192,10 @@ extension PostListViewController: ShareButtonListDelegate {
 extension PostListViewController: SavedStateDelegate {
     func didChangeSavedState(for postView: PostView) {
         postView.post?.saved.toggle()
+    
         guard let saved = postView.post?.saved else { return }
         saved ? postView.setSavedImage() : postView.setUnsavedImage()
-        StorageManager.shared.togglePostSave(postView.post ?? Post())
+        StorageManager.shared.savePost(postView.post ?? Post())
         
         guard let postName = postView.post?.postName else { return }
         
