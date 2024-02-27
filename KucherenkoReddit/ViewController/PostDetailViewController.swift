@@ -53,17 +53,6 @@ extension PostDetailViewController: ShareButtonDelegate {
 
 extension PostDetailViewController: SavedButtonDelegate {
     func saveButtonClicked() {
-        postDetailView.post?.saved.toggle()
-        guard let saved = postDetailView.post?.saved else { return }
-        saved ? postDetailView.setSavedImage() : postDetailView.setUnsavedImage()
-        StorageManager.shared.togglePostSave(postDetailView.post ?? Post())
         savedStateDelegate?.didChangeSavedState(for: postDetailView)
-    }
-}
-
-extension PostDetailViewController: SavedStateDelegate {
-    func didChangeSavedState(for postView: PostView) {
-        print("didChangeSavedState from list vc in detail vc")
-        updateSavedButtonImage()
     }
 }

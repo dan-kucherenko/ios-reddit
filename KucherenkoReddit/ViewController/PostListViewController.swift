@@ -86,7 +86,7 @@ extension PostListViewController: UITableViewDataSource {
         cell.config(post: post)
         
         cell.postView.sharedBtnListDelegate = self
-        cell.postView.saveListBtnDelegate = self
+        cell.postView.savedStateDelegate = self
         
         return cell
     }
@@ -158,22 +158,12 @@ extension PostListViewController: ShareButtonListDelegate {
     }
 }
 
-extension PostListViewController: SavedButtonListDelegate {
-    func savedButtonClicked(postView: PostView) {
+extension PostListViewController: SavedStateDelegate {
+    func didChangeSavedState(for postView: PostView) {
         postView.post?.saved.toggle()
         guard let saved = postView.post?.saved else { return }
         saved ? postView.setSavedImage() : postView.setUnsavedImage()
         StorageManager.shared.togglePostSave(postView.post ?? Post())
-        savedStateDelegate?.didChangeSavedState(for: postView)
-    }
-}
-
-extension PostListViewController: SavedStateDelegate {
-    func didChangeSavedState(for postView: PostView) {
-//        postView.post?.saved.toggle()
-//        guard let saved = postView.post?.saved else { return }
-//        saved ? postView.setSavedImage() : postView.setUnsavedImage()
-//        StorageManager.shared.togglePostSave(postView.post ?? Post())
         
         guard let postName = postView.post?.postName else { return }
         

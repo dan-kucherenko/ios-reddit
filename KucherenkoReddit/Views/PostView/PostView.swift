@@ -13,7 +13,7 @@ class PostView: UIView {
     weak var shareBtnDelegate: ShareButtonDelegate?
     weak var sharedBtnListDelegate: ShareButtonListDelegate?
     weak var saveBtnDelegate: SavedButtonDelegate?
-    weak var saveListBtnDelegate: SavedButtonListDelegate?
+    weak var savedStateDelegate: SavedStateDelegate?
     
     // MARK: Outlets
     @IBOutlet var postView: UIView!
@@ -52,7 +52,7 @@ class PostView: UIView {
     // MARK: Outlet action
     @IBAction func onSaveClicked(_ sender: Any) {
         saveBtnDelegate?.saveButtonClicked()
-        saveListBtnDelegate?.savedButtonClicked(postView: self)
+        savedStateDelegate?.didChangeSavedState(for: self)
     }
     
     @IBAction func onShareClicked(_ sender: Any) {

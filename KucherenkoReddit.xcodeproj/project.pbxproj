@@ -15,7 +15,6 @@
 		A54D70AE2B8228DD00EB1F72 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54D70AD2B8228DD00EB1F72 /* PostView.xib */; };
 		A54FB51D2B8CDEAB00FE5F06 /* ShareButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FB51C2B8CDEAB00FE5F06 /* ShareButtonDelegate.swift */; };
 		A57747B32B8D283100734F7B /* ShareButtonListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57747B22B8D283100734F7B /* ShareButtonListDelegate.swift */; };
-		A57747B52B8D287100734F7B /* SavedButtonListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57747B42B8D287100734F7B /* SavedButtonListDelegate.swift */; };
 		A57747B82B8D33E800734F7B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57747B72B8D33E800734F7B /* StorageManager.swift */; };
 		A57747BA2B8D5F1800734F7B /* SavedStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57747B92B8D5F1800734F7B /* SavedStateDelegate.swift */; };
 		A57C28962B84A4EF008F94B8 /* PostSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C28952B84A4EF008F94B8 /* PostSelectionDelegate.swift */; };
@@ -40,7 +39,6 @@
 		A54D70AD2B8228DD00EB1F72 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		A54FB51C2B8CDEAB00FE5F06 /* ShareButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButtonDelegate.swift; sourceTree = "<group>"; };
 		A57747B22B8D283100734F7B /* ShareButtonListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButtonListDelegate.swift; sourceTree = "<group>"; };
-		A57747B42B8D287100734F7B /* SavedButtonListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedButtonListDelegate.swift; sourceTree = "<group>"; };
 		A57747B72B8D33E800734F7B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		A57747B92B8D5F1800734F7B /* SavedStateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedStateDelegate.swift; sourceTree = "<group>"; };
 		A57C28952B84A4EF008F94B8 /* PostSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSelectionDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				A54FB51C2B8CDEAB00FE5F06 /* ShareButtonDelegate.swift */,
 				A5CB546D2B8D103100D5401E /* SavedButtonDelegate.swift */,
 				A57747B22B8D283100734F7B /* ShareButtonListDelegate.swift */,
-				A57747B42B8D287100734F7B /* SavedButtonListDelegate.swift */,
 				A57747B92B8D5F1800734F7B /* SavedStateDelegate.swift */,
 			);
 			path = ButtonsDelegates;
@@ -269,7 +266,6 @@
 				A57C28962B84A4EF008F94B8 /* PostSelectionDelegate.swift in Sources */,
 				A54D70AC2B8228C400EB1F72 /* PostView.swift in Sources */,
 				A57747B32B8D283100734F7B /* ShareButtonListDelegate.swift in Sources */,
-				A57747B52B8D287100734F7B /* SavedButtonListDelegate.swift in Sources */,
 				A502FF012B7916AB003847E1 /* ApiResponsePost.swift in Sources */,
 				A57747B82B8D33E800734F7B /* StorageManager.swift in Sources */,
 			);
