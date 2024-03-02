@@ -10,7 +10,11 @@ import SDWebImage
 
 class PostView: UIView {
     var post: Post?
-
+    weak var shareBtnDelegate: ShareButtonDelegate?
+    weak var sharedBtnListDelegate: ShareButtonListDelegate?
+    weak var saveBtnDelegate: SavedButtonDelegate?
+    weak var savedStateDelegate: SavedStateDelegate?
+    
     // MARK: Outlets
     @IBOutlet var postView: UIView!
     @IBOutlet private weak var author: UILabel!
@@ -21,7 +25,7 @@ class PostView: UIView {
     @IBOutlet private weak var viewImage: UIImageView!
     @IBOutlet private weak var rating: UIButton!
     @IBOutlet private weak var comments: UIButton!
-    
+    @IBOutlet private weak var share: UIButton!
     
     // MARK: Constants
     struct Const {
@@ -29,7 +33,7 @@ class PostView: UIView {
         static let defaultBtnImage = "bookmark"
     }
     let kCONTENT_XIB_NAME = "PostView"
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -42,18 +46,18 @@ class PostView: UIView {
     func commonInit() {
         Bundle.main.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
         postView.fixInView(self)
+        
     }
     
     // MARK: Outlet action
-    @IBAction func onChangeSave(_ sender: Any) {
-        post?.saved.toggle()
-        guard let saved = post?.saved else {return}
-        print(post?.saved)
-        if saved {
-            setImage(image: Const.savedBtnImage)
-        } else {
-            setImage(image: Const.defaultBtnImage)
-        }
+    @IBAction func onSaveClicked(_ sender: Any) {
+        saveBtnDelegate?.saveButtonClicked()
+        savedStateDelegate?.didChangeSavedState(for: self)
+    }
+    
+    @IBAction func onShareClicked(_ sender: Any) {
+        shareBtnDelegate?.shareButtonClicked()
+        sharedBtnListDelegate?.shareButtonClicked(postView: self)
     }
     
     // MARK: config methods
@@ -73,6 +77,14 @@ class PostView: UIView {
         setImage(image: savedBtnImageStr)
     }
     
+    func setSavedImage() {
+        setImage(image: Const.savedBtnImage)
+    }
+    
+    func setUnsavedImage() {
+        setImage(image: Const.defaultBtnImage)
+    }
+    
     private func convertTime(_ createdUtc: Int) -> String {
         let created = Date(timeIntervalSince1970: TimeInterval(createdUtc))
         let formatter = RelativeDateTimeFormatter()
@@ -90,7 +102,7 @@ class PostView: UIView {
     }
     
     private func setImage(image: String) {
-        let config = UIImage.SymbolConfiguration(scale: .medium)
+        let config = UIImage.SymbolConfiguration(scale: .large)
         self.savedButton.setImage(UIImage(systemName: image, withConfiguration: config), for: .normal)
     }
 }

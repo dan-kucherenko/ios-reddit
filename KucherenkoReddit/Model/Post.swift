@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post {
+struct Post: Codable {
     let author: String
     let postName: String
     let createdUtc: Int
@@ -17,6 +17,20 @@ struct Post {
     let score: Int
     let numComments: Int
     var url: String? = nil
+    let permalink: String
+    
+    init(){
+        self.author = ""
+        self.postName = ""
+        self.createdUtc = 0
+        self.domain = ""
+        self.saved = false
+        self.title = ""
+        self.score = 0
+        self.numComments = 0
+        self.permalink = ""
+        self.url = nil
+    }
     
     init(from apiChild: ChildData){
         self.author = apiChild.author
@@ -27,6 +41,7 @@ struct Post {
         self.title = apiChild.title
         self.score = apiChild.score
         self.numComments = apiChild.numComments
+        self.permalink = "https://reddit.com/\(apiChild.permalink)"
         self.url = manageImageExistence(post: apiChild)
     }
     
@@ -39,5 +54,11 @@ struct Post {
         }
         
         return nil
+    }
+}
+
+extension Post: Equatable {
+    static func == (lhs: Post, rhs: Post) -> Bool {
+        lhs.postName == rhs.postName
     }
 }

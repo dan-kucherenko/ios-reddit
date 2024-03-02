@@ -13,6 +13,10 @@
 		A51EB43E2B7E7C2B005CD283 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51EB43D2B7E7C2B005CD283 /* PostListViewController.swift */; };
 		A54D70AC2B8228C400EB1F72 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54D70AB2B8228C400EB1F72 /* PostView.swift */; };
 		A54D70AE2B8228DD00EB1F72 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A54D70AD2B8228DD00EB1F72 /* PostView.xib */; };
+		A54FB51D2B8CDEAB00FE5F06 /* ShareButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54FB51C2B8CDEAB00FE5F06 /* ShareButtonDelegate.swift */; };
+		A57747B32B8D283100734F7B /* ShareButtonListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57747B22B8D283100734F7B /* ShareButtonListDelegate.swift */; };
+		A57747B82B8D33E800734F7B /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57747B72B8D33E800734F7B /* StorageManager.swift */; };
+		A57747BA2B8D5F1800734F7B /* SavedStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57747B92B8D5F1800734F7B /* SavedStateDelegate.swift */; };
 		A57C28962B84A4EF008F94B8 /* PostSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57C28952B84A4EF008F94B8 /* PostSelectionDelegate.swift */; };
 		A58C2ECC2B76EF00005E15AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECB2B76EF00005E15AF /* AppDelegate.swift */; };
 		A58C2ECE2B76EF00005E15AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58C2ECD2B76EF00005E15AF /* SceneDelegate.swift */; };
@@ -23,6 +27,7 @@
 		A58C2EEB2B76FAD1005E15AF /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A58C2EEA2B76FAD1005E15AF /* SDWebImage */; };
 		A58C2EED2B76FAD1005E15AF /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A58C2EEC2B76FAD1005E15AF /* SDWebImageMapKit */; };
 		A5AD35DA2B77DF6700133B58 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD35D92B77DF6700133B58 /* Post.swift */; };
+		A5CB546E2B8D103100D5401E /* SavedButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CB546D2B8D103100D5401E /* SavedButtonDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,10 @@
 		A51EB43D2B7E7C2B005CD283 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		A54D70AB2B8228C400EB1F72 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		A54D70AD2B8228DD00EB1F72 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		A54FB51C2B8CDEAB00FE5F06 /* ShareButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButtonDelegate.swift; sourceTree = "<group>"; };
+		A57747B22B8D283100734F7B /* ShareButtonListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButtonListDelegate.swift; sourceTree = "<group>"; };
+		A57747B72B8D33E800734F7B /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		A57747B92B8D5F1800734F7B /* SavedStateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedStateDelegate.swift; sourceTree = "<group>"; };
 		A57C28952B84A4EF008F94B8 /* PostSelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSelectionDelegate.swift; sourceTree = "<group>"; };
 		A58C2EC82B76EF00005E15AF /* KucherenkoReddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KucherenkoReddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A58C2ECB2B76EF00005E15AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +51,7 @@
 		A58C2ED72B76EF01005E15AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A58C2ED92B76EF01005E15AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5AD35D92B77DF6700133B58 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A5CB546D2B8D103100D5401E /* SavedButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedButtonDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +98,8 @@
 		A502FF022B791967003847E1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A5CB546B2B8D0FDE00D5401E /* Delegates */,
 				A502FF032B79197E003847E1 /* ApiInfoReciever.swift */,
-				A57C28952B84A4EF008F94B8 /* PostSelectionDelegate.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -102,6 +112,14 @@
 				A54D70AD2B8228DD00EB1F72 /* PostView.xib */,
 			);
 			path = PostView;
+			sourceTree = "<group>";
+		};
+		A57747B62B8D32C600734F7B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A57747B72B8D33E800734F7B /* StorageManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		A58C2EBF2B76EF00005E15AF = {
@@ -123,6 +141,7 @@
 		A58C2ECA2B76EF00005E15AF /* KucherenkoReddit */ = {
 			isa = PBXGroup;
 			children = (
+				A57747B62B8D32C600734F7B /* Manager */,
 				A502FF022B791967003847E1 /* Utils */,
 				A502FEFF2B791681003847E1 /* ViewController */,
 				A502FEFD2B791669003847E1 /* Views */,
@@ -133,6 +152,26 @@
 				A58C2ED92B76EF01005E15AF /* Info.plist */,
 			);
 			path = KucherenkoReddit;
+			sourceTree = "<group>";
+		};
+		A5CB546B2B8D0FDE00D5401E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A5CB546C2B8D101E00D5401E /* ButtonsDelegates */,
+				A57C28952B84A4EF008F94B8 /* PostSelectionDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		A5CB546C2B8D101E00D5401E /* ButtonsDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				A54FB51C2B8CDEAB00FE5F06 /* ShareButtonDelegate.swift */,
+				A5CB546D2B8D103100D5401E /* SavedButtonDelegate.swift */,
+				A57747B22B8D283100734F7B /* ShareButtonListDelegate.swift */,
+				A57747B92B8D5F1800734F7B /* SavedStateDelegate.swift */,
+			);
+			path = ButtonsDelegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,16 +253,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5CB546E2B8D103100D5401E /* SavedButtonDelegate.swift in Sources */,
 				A51EB43E2B7E7C2B005CD283 /* PostListViewController.swift in Sources */,
 				A58C2ED02B76EF00005E15AF /* PostDetailViewController.swift in Sources */,
 				A507ADE82B801AF50004A680 /* PostTableViewCell.swift in Sources */,
+				A57747BA2B8D5F1800734F7B /* SavedStateDelegate.swift in Sources */,
 				A502FF042B79197E003847E1 /* ApiInfoReciever.swift in Sources */,
 				A58C2ECC2B76EF00005E15AF /* AppDelegate.swift in Sources */,
+				A54FB51D2B8CDEAB00FE5F06 /* ShareButtonDelegate.swift in Sources */,
 				A58C2ECE2B76EF00005E15AF /* SceneDelegate.swift in Sources */,
 				A5AD35DA2B77DF6700133B58 /* Post.swift in Sources */,
 				A57C28962B84A4EF008F94B8 /* PostSelectionDelegate.swift in Sources */,
 				A54D70AC2B8228C400EB1F72 /* PostView.swift in Sources */,
+				A57747B32B8D283100734F7B /* ShareButtonListDelegate.swift in Sources */,
 				A502FF012B7916AB003847E1 /* ApiResponsePost.swift in Sources */,
+				A57747B82B8D33E800734F7B /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
