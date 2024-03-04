@@ -131,6 +131,9 @@
                                 <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="baseForegroundColor" systemColor="systemGrayColor"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="onCommentsClicked:" destination="-1" eventType="touchUpInside" id="PDW-I5-hZN"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKM-Xk-O7B" userLabel="Share">
                             <rect key="frame" x="317" y="0.0" width="43" height="35"/>

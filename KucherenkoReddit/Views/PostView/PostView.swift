@@ -14,6 +14,7 @@ class PostView: UIView {
     weak var sharedBtnListDelegate: ShareButtonListDelegate?
     weak var saveBtnDelegate: SavedButtonDelegate?
     weak var savedStateDelegate: SavedStateDelegate?
+    weak var commentsBtnDelegate: CommentButtonDelegate?
     
     // MARK: Outlets
     @IBOutlet var postView: UIView!
@@ -53,6 +54,10 @@ class PostView: UIView {
     @IBAction func onSaveClicked(_ sender: Any) {
         saveBtnDelegate?.saveButtonClicked()
         savedStateDelegate?.didChangeSavedState(for: self)
+    }
+    
+    @IBAction func onCommentsClicked(_ sender: Any) {
+        commentsBtnDelegate?.commentClicked(on: self)
     }
     
     @IBAction func onShareClicked(_ sender: Any) {
