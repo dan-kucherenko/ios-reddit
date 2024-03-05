@@ -26,6 +26,7 @@
 		A58C2ED82B76EF01005E15AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A58C2ED62B76EF01005E15AF /* LaunchScreen.storyboard */; };
 		A58C2EEB2B76FAD1005E15AF /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A58C2EEA2B76FAD1005E15AF /* SDWebImage */; };
 		A58C2EED2B76FAD1005E15AF /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A58C2EEC2B76FAD1005E15AF /* SDWebImageMapKit */; };
+		A59F54932B97BEAA00E33BDC /* PostUtilsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F54922B97BEAA00E33BDC /* PostUtilsHelper.swift */; };
 		A5AD35DA2B77DF6700133B58 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD35D92B77DF6700133B58 /* Post.swift */; };
 		A5CB546E2B8D103100D5401E /* SavedButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CB546D2B8D103100D5401E /* SavedButtonDelegate.swift */; };
 		A5D2FA5C2B95D98300D801A5 /* CommentButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2FA5B2B95D98300D801A5 /* CommentButtonDelegate.swift */; };
@@ -52,6 +53,7 @@
 		A58C2ED42B76EF01005E15AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A58C2ED72B76EF01005E15AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A58C2ED92B76EF01005E15AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A59F54922B97BEAA00E33BDC /* PostUtilsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostUtilsHelper.swift; sourceTree = "<group>"; };
 		A5AD35D92B77DF6700133B58 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A5CB546D2B8D103100D5401E /* SavedButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedButtonDelegate.swift; sourceTree = "<group>"; };
 		A5D2FA5B2B95D98300D801A5 /* CommentButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentButtonDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				A5CB546B2B8D0FDE00D5401E /* Delegates */,
 				A502FF032B79197E003847E1 /* ApiInfoReciever.swift */,
 				A5D2FA5D2B95DED800D801A5 /* BookmarkDrawer.swift */,
+				A59F54922B97BEAA00E33BDC /* PostUtilsHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				A51EB43E2B7E7C2B005CD283 /* PostListViewController.swift in Sources */,
 				A58C2ED02B76EF00005E15AF /* PostDetailViewController.swift in Sources */,
 				A507ADE82B801AF50004A680 /* PostTableViewCell.swift in Sources */,
+				A59F54932B97BEAA00E33BDC /* PostUtilsHelper.swift in Sources */,
 				A57747BA2B8D5F1800734F7B /* SavedStateDelegate.swift in Sources */,
 				A502FF042B79197E003847E1 /* ApiInfoReciever.swift in Sources */,
 				A58C2ECC2B76EF00005E15AF /* AppDelegate.swift in Sources */,
