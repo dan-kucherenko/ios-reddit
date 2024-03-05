@@ -13,17 +13,9 @@ class BookmarkDrawer {
     
     private init(){}
     
-    func drawBookmark(for imageView: inout UIView?, in parentView: UIView, postView: UIView) {
-        imageView = UIView(
-            frame: CGRect(
-                x: postView.bounds.midX - 75,
-                y: postView.bounds.midY - 100,
-                width: 150,
-                height: 200
-            )
-        )
-        parentView.addSubview(imageView ?? UIView())
-        drawIcon(in: imageView ?? UIView())
+    func drawBookmark(for imageView: UIView, in parentView: UIView, postView: UIView) {
+        parentView.addSubview(imageView)
+        drawIcon(in: imageView)
     }
     
     private func drawIcon (in view: UIView){
