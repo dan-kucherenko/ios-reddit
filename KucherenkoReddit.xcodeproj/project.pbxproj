@@ -29,6 +29,7 @@
 		A5AD35DA2B77DF6700133B58 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD35D92B77DF6700133B58 /* Post.swift */; };
 		A5CB546E2B8D103100D5401E /* SavedButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CB546D2B8D103100D5401E /* SavedButtonDelegate.swift */; };
 		A5D2FA5C2B95D98300D801A5 /* CommentButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2FA5B2B95D98300D801A5 /* CommentButtonDelegate.swift */; };
+		A5D2FA5E2B95DED800D801A5 /* BookmarkDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D2FA5D2B95DED800D801A5 /* BookmarkDrawer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		A5AD35D92B77DF6700133B58 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A5CB546D2B8D103100D5401E /* SavedButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedButtonDelegate.swift; sourceTree = "<group>"; };
 		A5D2FA5B2B95D98300D801A5 /* CommentButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentButtonDelegate.swift; sourceTree = "<group>"; };
+		A5D2FA5D2B95DED800D801A5 /* BookmarkDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDrawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				A5CB546B2B8D0FDE00D5401E /* Delegates */,
 				A502FF032B79197E003847E1 /* ApiInfoReciever.swift */,
+				A5D2FA5D2B95DED800D801A5 /* BookmarkDrawer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				A58C2ECE2B76EF00005E15AF /* SceneDelegate.swift in Sources */,
 				A5AD35DA2B77DF6700133B58 /* Post.swift in Sources */,
 				A57C28962B84A4EF008F94B8 /* PostSelectionDelegate.swift in Sources */,
+				A5D2FA5E2B95DED800D801A5 /* BookmarkDrawer.swift in Sources */,
 				A54D70AC2B8228C400EB1F72 /* PostView.swift in Sources */,
 				A57747B32B8D283100734F7B /* ShareButtonListDelegate.swift in Sources */,
 				A502FF012B7916AB003847E1 /* ApiResponsePost.swift in Sources */,

@@ -10,6 +10,8 @@ import SDWebImage
 
 class PostView: UIView {
     var post: Post?
+    private var imageView: UIView?
+    
     weak var shareBtnDelegate: ShareButtonDelegate?
     weak var sharedBtnListDelegate: ShareButtonListDelegate?
     weak var saveBtnDelegate: SavedButtonDelegate?
@@ -51,7 +53,7 @@ class PostView: UIView {
     }
     
     // MARK: Outlet action
-    @IBAction func onSaveClicked(_ sender: Any) {
+    @IBAction func onSaveClicked(_ sender: UIButton) {
         saveBtnDelegate?.saveButtonClicked()
         savedStateDelegate?.didChangeSavedState(for: self)
     }
@@ -80,8 +82,11 @@ class PostView: UIView {
         
         let savedBtnImageStr = savedButton.isSelected ? Const.savedBtnImage : Const.defaultBtnImage
         setImage(image: savedBtnImageStr)
+        
+        BookmarkDrawer.shared.drawBookmark(for: &imageView, in: self, postView: postView)
     }
     
+    // MARK: bookmarks icon changing
     func setSavedImage() {
         setImage(image: Const.savedBtnImage)
     }
