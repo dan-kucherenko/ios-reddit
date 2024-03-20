@@ -10,10 +10,13 @@ import SDWebImage
 
 class PostView: UIView {
     var post: Post?
+    private var bookmarkIconView: UIView?
+    
     weak var shareBtnDelegate: ShareButtonDelegate?
     weak var sharedBtnListDelegate: ShareButtonListDelegate?
     weak var saveBtnDelegate: SavedButtonDelegate?
     weak var savedStateDelegate: SavedStateDelegate?
+    weak var commentsBtnDelegate: CommentButtonDelegate?
     
     // MARK: Outlets
     @IBOutlet var postView: UIView!
@@ -50,9 +53,13 @@ class PostView: UIView {
     }
     
     // MARK: Outlet action
-    @IBAction func onSaveClicked(_ sender: Any) {
+    @IBAction func onSaveClicked(_ sender: UIButton) {
         saveBtnDelegate?.saveButtonClicked()
         savedStateDelegate?.didChangeSavedState(for: self)
+    }
+    
+    @IBAction func onCommentsClicked(_ sender: Any) {
+        commentsBtnDelegate?.commentClicked(on: self)
     }
     
     @IBAction func onShareClicked(_ sender: Any) {
@@ -65,46 +72,69 @@ class PostView: UIView {
         guard let post else { return }
         self.post = post
         self.author.text = post.author
-        self.postTime.text = convertTime(post.createdUtc)
+        self.postTime.text = PostUtilsHelper.shared.convertTime(post.createdUtc)
         self.domain.text = post.domain
         self.titleLabel.text = post.title
         self.savedButton.isSelected = post.saved
-        manageUrl(url: post.url)
+        PostUtilsHelper.shared.manageUrl(url: post.url, viewImage: viewImage)
         self.rating.setTitle(String(post.score), for: .normal)
         self.comments.setTitle(String(post.numComments), for: .normal)
         
         let savedBtnImageStr = savedButton.isSelected ? Const.savedBtnImage : Const.defaultBtnImage
-        setImage(image: savedBtnImageStr)
+        PostUtilsHelper.shared.setImage(for: savedButton, image: savedBtnImageStr)
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        recognizer.numberOfTapsRequired = 2
+        self.addGestureRecognizer(recognizer)
+        bookmarkIconView = UIView(
+            frame: CGRect(
+                x: postView.bounds.midX - 90,
+                y: postView.bounds.midY - 100,
+                width: 150,
+                height: 200
+            )
+        )
+        if let imageView = self.bookmarkIconView {
+            BookmarkDrawer.shared.drawBookmark(for: imageView, in: self, postView: postView)
+        }
     }
     
+    // MARK: bookmarks icon changing
     func setSavedImage() {
-        setImage(image: Const.savedBtnImage)
+        PostUtilsHelper.shared.setImage(for: savedButton, image: Const.savedBtnImage)
     }
     
     func setUnsavedImage() {
-        setImage(image: Const.defaultBtnImage)
+        PostUtilsHelper.shared.setImage(for: savedButton, image: Const.defaultBtnImage)
     }
     
-    private func convertTime(_ createdUtc: Int) -> String {
-        let created = Date(timeIntervalSince1970: TimeInterval(createdUtc))
-        let formatter = RelativeDateTimeFormatter()
-        formatter.unitsStyle = .full
-        let dateStr = formatter.localizedString(for: created, relativeTo: Date())
-        return dateStr
+    @objc private func doubleTapped (_ sender: UITapGestureRecognizer) {
+        animateViewAppearance()
     }
     
-    private func manageUrl(url: String?) {
-        guard let url else {
-            self.viewImage.image = UIImage(resource: .franks)
-            return
-        }
-        self.viewImage.sd_setImage(with: URL(string: url))
+    private func animateViewAppearance() {
+        UIView.transition(
+            with: self,
+                duration: 0.3,
+                options: .transitionCrossDissolve,
+                animations: {
+                    self.bookmarkIconView?.isHidden = false
+                },
+            completion: { _ in
+                UIView.transition(
+                    with: self,
+                    duration: 0.3,
+                    options: .transitionCrossDissolve,
+                    animations: {
+                        self.bookmarkIconView?.isHidden = true
+                    }
+                )
+                self.onSaveClicked(self.savedButton)
+            }
+        )
     }
     
-    private func setImage(image: String) {
-        let config = UIImage.SymbolConfiguration(scale: .large)
-        self.savedButton.setImage(UIImage(systemName: image, withConfiguration: config), for: .normal)
-    }
+    
 }
 
 extension UIView {

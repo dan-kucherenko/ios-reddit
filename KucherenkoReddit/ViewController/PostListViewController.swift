@@ -119,6 +119,7 @@ extension PostListViewController: UITableViewDataSource {
         
         cell.postView.sharedBtnListDelegate = self
         cell.postView.savedStateDelegate = self
+        cell.postView.commentsBtnDelegate = self
         
         return cell
     }
@@ -134,11 +135,6 @@ extension PostListViewController: UITableViewDelegate {
             nextVc.savedStateDelegate = self
         default: break
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedPost = self.posts[indexPath.row]
-        self.performSegue(withIdentifier: Const.gotoDetailViewSegueId, sender: nil)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -208,5 +204,12 @@ extension PostListViewController: SavedStateDelegate {
                 break
             }
         }
+    }
+}
+
+extension PostListViewController: CommentButtonDelegate {
+    func commentClicked(on postView: PostView) {
+        self.selectedPost = postView.post
+        self.performSegue(withIdentifier: Const.gotoDetailViewSegueId, sender: nil)
     }
 }

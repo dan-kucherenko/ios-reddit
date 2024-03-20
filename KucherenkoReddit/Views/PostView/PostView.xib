@@ -131,6 +131,9 @@
                                 <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="baseForegroundColor" systemColor="systemGrayColor"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="onCommentsClicked:" destination="-1" eventType="touchUpInside" id="PDW-I5-hZN"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKM-Xk-O7B" userLabel="Share">
                             <rect key="frame" x="317" y="0.0" width="43" height="35"/>
@@ -172,6 +175,7 @@
                 <constraint firstItem="xgS-Id-waC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hAA-uP-LCg"/>
                 <constraint firstAttribute="trailing" secondItem="1Wb-Nr-Nl6" secondAttribute="trailing" id="hMf-ro-xT4"/>
                 <constraint firstAttribute="trailing" secondItem="xgS-Id-waC" secondAttribute="trailing" id="igS-dE-6AO"/>
+                <constraint firstAttribute="height" constant="300" id="keG-6X-dOL"/>
                 <constraint firstItem="Xe2-xX-HBN" firstAttribute="top" secondItem="xgS-Id-waC" secondAttribute="bottom" id="mw3-VE-Kj9"/>
                 <constraint firstItem="Xe2-xX-HBN" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="nyN-9I-LJE"/>
                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="t07-Hm-YWy"/>
